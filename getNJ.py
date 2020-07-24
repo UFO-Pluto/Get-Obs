@@ -57,6 +57,7 @@ def get_api_data(stations, start, end, data_type=0, scale=1):
             json_all.extend(json_file)
             print('get data:' + date_range[0] + '-' + date_range[1])
 
+
         ll = list(json_all[0].keys())
         for i in range(0, len(ll)):
             sheet.write(0, i, ll[i])
@@ -70,10 +71,9 @@ def get_api_data(stations, start, end, data_type=0, scale=1):
                 m += 1
         print(station + 'Finish')
 
-    workbook.save('南京市国控点 obs hourly 2015.xls')
+    workbook.save('常州市 obs daily 2014.xls')
     print('Finish!')
 
 
 if __name__ == '__main__':
-    station_list = ['1151A', '1152A', '1153A', '1154A', '1155A', '1156A', '1157A', '1158A', '1159A']
-    get_api_data(station_list, 20150101, 20151231)
+    get_api_data(['常州'], 20140101, 20141231)
