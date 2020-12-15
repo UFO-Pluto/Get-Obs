@@ -34,7 +34,7 @@ def split_date(start, end):
 
 
 # 获取数据
-def get_api_data(stations, start, end, data_type=0, scale=1):
+def get_api_data(stations, start, end, data_type=0, scale=0):
     date_list = split_date(start, end)
     workbook = xlwt.Workbook()
     for station in stations:
@@ -51,7 +51,7 @@ def get_api_data(stations, start, end, data_type=0, scale=1):
                 'scale': scale,
                 'echarts': 0
             }
-            url = f'http://114.67.97.73:5010/api/aqi/'
+            url = f'http://47.102.42.30:5010/api/aqi/'
             r = requests.get(url, params)
             json_file = json.loads(r.text)['obs']
             json_all.extend(json_file)
@@ -70,10 +70,10 @@ def get_api_data(stations, start, end, data_type=0, scale=1):
                 m += 1
         print(station + 'Finish')
 
-    workbook.save('南京市国控点 obs hourly 2015.xls')
+    workbook.save(f'obs daily 2020.xls')
     print('Finish!')
 
 
 if __name__ == '__main__':
-    station_list = ['1151A', '1152A', '1153A', '1154A', '1155A', '1156A', '1157A', '1158A', '1159A']
-    get_api_data(station_list, 20150101, 20151231)
+    station_list = ['福州', '深圳', '贵阳', '丽水', '惠州', ]
+    get_api_data(station_list, 20200101, 20201231)
