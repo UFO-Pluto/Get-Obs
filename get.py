@@ -70,10 +70,10 @@ def get_api_data(stations, start, end, data_type=0, scale=0):
                 m += 1
         print(station + 'Finish')
 
-    workbook.save(f'obs daily 2020.xls')
+    workbook.save(f'福州站点 daily 2020.xls')
     print('Finish!')
 
 
 if __name__ == '__main__':
-    station_list = ['福州', '深圳', '贵阳', '丽水', '惠州', ]
+    station_list = ['1280A', '1281A', '1282A', '1283A', '1284A','1285A', ]
     get_api_data(station_list, 20200101, 20201231)
